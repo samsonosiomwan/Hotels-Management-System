@@ -10,7 +10,7 @@
 - Heroku hosting/CI/CD
 
 ## Project Description
-The project is a full fledge application with a robust documentation on project requirements and all necessary details.
+The project is a full fledge monolith application with a robust documentation on project requirements and all necessary details using django.
 
 
 # Visit site
