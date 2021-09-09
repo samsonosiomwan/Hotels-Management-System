@@ -3,7 +3,13 @@
 # user story
  build a Hotel Management System for managing general activities of a hotel like booking of rooms, billing etc.
 
-Project Description
+## Technologies
+- python 3.9
+- django 
+- postgres SQL
+- Heroku hosting/CI/CD
+
+## Project Description
 The project is a full fledge application with a robust documentation on project requirements and all necessary details.
 
 
