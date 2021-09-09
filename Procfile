@@ -1,0 +1,1 @@
+web: gunicorn Ekohotels.wsgi --log-file -

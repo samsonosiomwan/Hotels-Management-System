@@ -1,0 +1,51 @@
+{% extends 'ekohms/base.html' %}
+
+{% for room in rooms%}
+
+{% block content %}
+
+
+<div class="col-12 p-5">
+    <div class="row">
+
+      <!-- Image -->
+
+      <div class="col-md-6 d-block-sm pb-2">
+        <img class="w-100" src="{{room.image.url}}" alt="Hotel room">
+      </div>
+
+      <!-- End of Image -->
+
+      <div class="col-md-6 d-block-sm px-3">
+        <h2>{{room.room_type}}</h2>
+        <p class="card-text">{{room.room_description}}</p>
+        <p class="card-text">{{room.price}}</p>
+        
+
+
+
+
+        <!--Icons -->
+        <div class="icons">
+          <i class="fas fa-wifi"></i>
+          <i class="fas fa-tv"></i>
+          <i class="fas fa-swimmer"></i>
+          <i class="fas fa-parking"></i>
+        </div>
+
+        <div>
+          <a href="{% url  'booking' room.id %}">
+          <button type="button" class="btn btn-primary pb-2 my-4 text-uppercase" data-toggle="modal"
+            data-target="#servicesmodal">Book
+            Now</button></a>
+        </div>
+
+      </div> <!-- col-md-6 -->
+
+    </div> <!-- row -->
+  </div> <!-- col-12 -->
+
+  <!-- End of Signature Room -->
+
+{% endblock content %}
+{% endfor%}

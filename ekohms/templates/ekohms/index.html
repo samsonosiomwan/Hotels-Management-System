@@ -1,0 +1,113 @@
+{% extends 'ekohms/base.html' %}
+{% load static %}
+
+  <!-- Navigation -->
+{% block content %}
+  <!-- Image Slider -->
+
+  <div class="carousel slide carousel-fade carousel-fullscreen" id="featured" data-ride="carousel">
+
+    <ul class="carousel-indicators">
+      <li data-target="#featured" data-slide-to="0" class="active"></li>
+      <li data-target="#featured" data-slide-to="1"></li>
+      <li data-target="#featured" data-slide-to="2"></li>
+    </ul>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active slide-1">
+        <div class="overlay"></div>
+        <div class="carousel-caption">
+          <h1>Welcome to Eko Hotels</h1>
+          <p class="lead pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit similique enim</p>
+        </div>
+      </div>
+
+      <div class="carousel-item slide-2">
+        <div class="overlay"></div>
+        <div class="carousel-caption">
+          <h1>Enjoy Luxury Experience</h1>
+          <p class="lead pt-3">Nihil pariatur labore maiores officiis animi iure quia cum nemo</p>
+        </div>
+      </div>
+
+      <div class="carousel-item slide-3">
+        <div class="overlay"></div>
+        <div class="carousel-caption">
+          <h1>A Place to Stay and Relax</h1>
+          <p class="lead pt-3">Doloribus dolorum at esse accusamus libero dignissimos quo eum debitis</p>
+        </div>
+      </div>
+
+    </div><!-- carousel-inner -->
+
+    <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true">
+        <span class="sr-only">Previus</span>
+      </span>
+    </a>
+
+    <a class="carousel-control-next" href="#featured" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true">
+        <span class="sr-only">Next</span>
+      </span>
+    </a>
+
+  </div> <!-- carousel -->
+
+  <!-- End of Image Slider -->
+
+  <!-- About -->
+
+  <div class="container">
+    <div class="row py-5">
+
+      <div class="col-md-6 d-block-sm pb-4">
+        <h2>About Us</h2>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione error sed aut sapiente expedita
+          provident praesentium autem ut.</p>
+        <div>
+          <a href="about.html" class="btn btn-primary text-uppercase pb-2 active" role="button" aria-pressed="true">Read
+            more</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-block-sm">
+        <img class="w-100" src="{% static 'ekohms/images/hotel-lobby.jpg' %}" alt="Hotel lobby">
+      </div>
+
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+  <!-- End of About -->
+
+  <!-- Rooms -->
+
+  <div class="container">
+    <div class="row">
+
+      <h2 class="col-sm-12 text-center py-5">Rooms</h2>
+
+      {% for room in rooms %}
+
+      <div class="col-sm-6">
+        <section class="card mb-5">
+          <img class="card-img-top img-fluid" src="{{room.image.url}}" alt="Hotel bedroom">
+          <div class="card-body">
+            <h3 class="card-title py-2">{{room.room_type}}</h3>
+            <p class="card-text">{{room.room_description}}</p>
+            <div>
+              <a href="{% url 'rooms_detailed_view' room.id %}" class="btn btn-primary text-uppercase pb-2 active" role="button"
+                aria-pressed="true">Read
+                more</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      {% endfor %}
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+  <!-- End of Rooms -->
+
+{% endblock content %}

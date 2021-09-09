@@ -1,0 +1,10 @@
+{% extend 'ekohms/base.html' %}
+
+{%for room in room_no%}
+{%block content%}
+
+{%if room =='available' %}
+    <p>You have been assigned room 101</p>
+{%else%}
+    <p>The room is unavailable at the moment</p>
+{%endblock content%}

@@ -1,0 +1,149 @@
+{% extends 'ekohms/base.html' %}
+
+{% block content %}
+ <!-- Header -->
+
+  <header class="masthead rooms-masthead mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1 class="font-weight-light text-light">Rooms</h1>
+          <p class="lead text-light">We hope you’ll enjoy your stay</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+ <!-- Subtitle -->
+
+ <div class="container text-center pt-5">
+    <h2>Presidential Offer</h2>
+    <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga nobis quas aspernatur non ipsa
+      explicabo, eum nisi temporibus sunt est itaque quod, repellendus tempore impedit doloribus repudiandae, eaque
+      mollitia cupiditate.</p>
+  </div>
+
+  <!-- End of Subtitle -->
+
+  <!-- Luxury Suite -->
+
+  <div class="col-12">
+    <div class="row pt-2">
+
+      <div class="col-md-6 d-block-sm p-5 bg-danger text-light">
+        <h2>Luxury Suite</h2>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione error sed aut sapiente expedita
+          provident praesentium autem ut.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto at, reprehenderit tempora, omnis
+          voluptate ea ipsa sint quod facilis expedita impedit rem quia ad.</p>
+        <p>Samet velit aut quisquam voluptatem dolorum perferendis explicabo perspiciatis? Optio voluptate neque quos
+          minima laborum quia id rerum aspernatur aliquam molestias voluptates.</p>
+
+        <!--Icons -->
+        <div class="icons">
+          <i class="fas fa-wifi"></i>
+          <i class="fas fa-tv"></i>
+          <i class="fas fa-swimmer"></i>
+          <i class="fas fa-parking"></i>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-primary pb-2 my-4 text-uppercase" data-toggle="modal"
+            data-target="#servicesmodal">Book
+            Now</button>
+        </div>
+
+      </div> <!-- col-md-6 -->
+
+      <!-- Image Slider -->
+
+      <div class="col-md-6 d-block-sm p-0">
+
+        <div class="carousel slide carousel-fade carousel-fullscreen" id="featured" data-ride="carousel">
+          <ul class="carousel-indicators">
+            <li data-target="#featured" data-slide-to="0" class="active"></li>
+            <li data-target="#featured" data-slide-to="1"></li>
+            <li data-target="#featured" data-slide-to="2"></li>
+            <li data-target="#featured" data-slide-to="3"></li>
+          </ul>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active rooms-slide-1">
+            </div>
+
+            <div class="carousel-item rooms-slide-2">
+            </div>
+
+            <div class="carousel-item rooms-slide-3">
+            </div>
+
+            <div class="carousel-item rooms-slide-4">
+            </div>
+          </div> <!-- carousel-inner -->
+
+          <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+              <span class="sr-only">Previus</span>
+            </span>
+          </a>
+
+          <a class="carousel-control-next" href="#featured" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+              <span class="sr-only">Next</span>
+            </span>
+          </a>
+
+        </div> <!-- carousel -->
+
+        <!-- End of Image Slider -->
+
+      </div> <!-- col-md-6 -->
+
+    </div> <!-- row -->
+  </div> <!-- col-12 -->
+
+  <!-- End of Luxury Suite -->
+
+
+{% for room in rooms %}
+
+    <div class="col-12 p-5" id="roomsMain">
+        <div class="row">
+
+        <!-- Image -->
+
+        <div class="col-md-6 d-block-sm pb-2">
+            <img class="w-100" src="{{room.image.url}}" alt="Hotel room">
+        </div>
+
+        <!-- End of Image -->
+
+        <div class="col-md-6 d-block-sm px-3">
+            <h2>{{room.room_type}}</h2>
+            <p>{{room.room_description}}</p>
+           
+
+            <!--Icons -->
+            <div class="icons">
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-tv"></i>
+            <i class="fas fa-swimmer"></i>
+            <i class="fas fa-parking"></i>
+            </div>
+
+            <div>
+              <a href="{% url 'rooms_detailed_view' room.id %}" class="btn btn-primary text-uppercase pb-2 active" role="button"
+                aria-pressed="true">Read
+                more</a>
+            </div>
+
+        </div> <!-- col-md-6 -->
+
+        </div> <!-- row -->
+    </div> <!-- col-12 -->
+
+  <!-- End of Signature Room -->
+      {% endfor %}
+
+{% endblock content %}
+
